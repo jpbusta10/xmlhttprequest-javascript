@@ -42,6 +42,31 @@ async function getEmployees() {
         throw error;
     }
 }
+async function getCompanies(){
+    try{
+        const companyUrl = baseUrl + companiesRoute;
+        const companyData = await makeHttpRequest('GET', companyUrl);
+        return companyData
+    }catch(error){
+        throw error;
+    }
+}
+// function renderCompaniesList(companies){
+//     const listContainer = document,getElementById('company-list');
+
+//     listContainer.innerHTML = ''; ///empty list
+
+//     if(companies.length === 0){
+//         listContainer.tecxContent = 'No Companies found';
+//         return;
+//     }
+//     const ul = document.createElement('ul');
+//     ul.className = 'companies-list';    
+
+//     companies.forEach{
+        
+//     }
+// }
 
 function renderEmployeeList(employees) {
     const listContainer = document.getElementById('employee-list');
@@ -73,8 +98,9 @@ function renderEmployeeList(employees) {
 }
 
 // Add an event listener to the button to fetch and render employees when clicked
-const fetchButton = document.getElementById('fetch-button');
-fetchButton.addEventListener('click', async () => {
+const fetchButtonEmployee = document.getElementById('fetch-button-employee');
+
+fetchButtonEmployee.addEventListener('click', async () => {
     const resultDiv = document.getElementById('employee-list');
     resultDiv.textContent = 'Fetching employee data... ';
 
